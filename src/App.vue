@@ -51,7 +51,7 @@ const navItems = [
         </div>
       </div>
     </div>
-    <div class="main__column">
+    <div class="main__column main__column--right">
       <component
         :is="navMap[navKey]"
       />
@@ -66,6 +66,14 @@ const navItems = [
   column-gap: 20px;
   border: 1px solid red;
   padding: 2rem;
+}
+
+.main__column--right {
+  width: 600px;
+  height: 400px;
+  max-width: 600px;
+  max-height: 400px;
+  overflow: auto;
 }
 
 .header {
