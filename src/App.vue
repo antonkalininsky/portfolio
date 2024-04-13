@@ -1,73 +1,90 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import BioComponent from './components/BioComponent.vue';
+import ExperienceComponent from './components/ExperienceComponent.vue';
+import DemoComponent from './components/DemoComponent.vue';
+
+const navMap = {
+  BioComponent,
+  ExperienceComponent,
+  DemoComponent
+}
+
+const navKey = ref('BioComponent')
+
+const navItems = [
+  {
+    title: 'Bio',
+    key: 'BioComponent'
+  },
+  {
+    title: 'Experience',
+    key: 'ExperienceComponent'
+  },
+  {
+    title: 'Demo',
+    key: 'DemoComponent'
+  }
+]
 
 </script>
 
 <template>
-  <div>
-    hello world
+  <div class="main">
+    <div class="main__column">
+      <div class="header">
+        <div class="header__name">
+          Polosin Anton
+        </div>
+        <div class="header__subname">
+          frontend developer
+        </div>
+      </div>
+      <div class="navigation">
+        <div
+          v-for="item in navItems"
+          :key="item.key"
+          @click="() => navKey = item.key"
+          class="navigation__item"
+        >
+          {{ item.title }}
+        </div>
+      </div>
+    </div>
+    <div class="main__column">
+      <component
+        :is="navMap[navKey]"
+      />
+    </div>
   </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.main {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 20px;
+  border: 1px solid red;
+  padding: 2rem;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.header {
+  margin-bottom: 20px;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+.header__name {
+  white-space: nowrap;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.header__subname {
+  white-space: nowrap;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.navigation__item {
+  cursor: pointer;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.navigation__item:hover {
+  text-decoration: underline;
 }
 </style>
