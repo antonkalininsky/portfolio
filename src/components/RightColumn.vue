@@ -1,18 +1,21 @@
 <script setup>
 const experience = [
   {
-    title: 'ООО КТ Комплекс',
-    description: 'Грант',
-    dates: '2022 - 2023',
+    title: 'ООО Аврора Холдинг',
+    description: 'Продуктовая разработка',
+    dates: '2023 - Н.В.',
     projects: [
       {
-        title: 'MES система для производства',
+        title: 'ERP для производства',
         points: [
-          'разрабатывал веб интерфейс с различными формами отображения информации: графики, таблицы, блок-схемы',
-          'реализовывал авторизацию и различные уровни доступа для пользователей',
-          'занимался менторством, проводил код ревью'
+          'решал оптимизационные проблемы с точки зрения алгоритмов, отрисовки и серверных запросов; добился многократного прироста производительности',
+          'реализовывал сложную бизнес-логику на стороне клиента',
+          'дорабатывал ui kit',
+          'рефакторил кодовую базу, провел декомпозицию, применял DRY',
+          'участвовал в принятии архитектурных решений',
+          'подключал серверные запросы и участвовал в проектировании API'
         ],
-        stack: ['vue3', 'vue-router', 'vuex', 'chartjs']
+        stack: ['Nuxt2', 'Vuex', 'Axios', 'Buefy', 'TailwindCss', 'Sass']
       }
     ]
   },
@@ -28,7 +31,7 @@ const experience = [
           'решал задачу восстановления состояния после закрытия приложения',
           'подключал карту 2gis и реализовывал функционал отображения позиции клиента и построения пути'
         ],
-        stack: ['vue3', 'vue-router', 'pinia', 'vuetify', 'axios', '2gis API']
+        stack: ['Vue3', 'Vue-Router', 'Pinia', 'Vuetify', 'Axios', '2gis API']
       },
       {
         title: 'CRM для тренажерного зала',
@@ -40,26 +43,23 @@ const experience = [
           'писал тесты для серверных запросов',
           'подключал серверные запросы и участвовал в проектировании API'
         ],
-        stack: ['vue3', 'vue-router', 'vuex', 'vuetify', 'axios', 'jest']
+        stack: ['Vue3', 'Vue-Router', 'Vuex', 'Vuetify', 'Axios', 'Jest']
       }
     ]
   },
   {
-    title: 'ООО Аврора Холдинг',
-    description: 'Продуктовая разработка',
-    dates: '2023 - Н.В.',
+    title: 'ООО КТ Комплекс',
+    description: 'Разработка по гранту',
+    dates: '2022 - 2023',
     projects: [
       {
-        title: 'ERP для производства',
+        title: 'MES система для производства',
         points: [
-          'решал оптимизационные проблемы с точки зрения алгоритмов, отрисовки и серверных запросов; добился многократного прироста производительности',
-          'реализовывал сложную бизнес-логику на стороне клиента',
-          'дорабатывал ui kit',
-          'рефакторил кодовую базу, провел декомпозицию, применял DRY',
-          'участвовал в принятии архитектурных решений',
-          'подключал серверные запросы и участвовал в проектировании API'
+          'разрабатывал веб интерфейс с различными формами отображения информации: графики, таблицы, блок-схемы',
+          'реализовывал авторизацию и различные уровни доступа для пользователей',
+          'занимался менторством, проводил код ревью'
         ],
-        stack: ['nuxt2', 'vuex', 'axios', 'buefy', 'tailwindcss', 'sass']
+        stack: ['Vue3', 'Vue-Router', 'Vuex', 'Chart-js']
       }
     ]
   }
@@ -79,33 +79,31 @@ const petProjects = ['Шахматы', 'Верстка', 'Музыка']
     <!-- experience -->
     <section class="section">
       <div v-for="expItem in experience" :key="expItem.title" class="exp-item">
-        <div class="exp-item__header">
-          <div>
-            {{ expItem.dates }}
-          </div>
-          <div>
-            {{ expItem.title }}
-          </div>
-          <div></div>
-          <div>
-            {{ expItem.description }}
-          </div>
+        <div class="exp-item__dates">
+          {{ expItem.dates }}
         </div>
-        <div>
-          <div v-for="project in expItem.projects" :key="project.title" class="exp-item__project">
+        <div class="exp-item__header">
+          {{ expItem.title }}
+          <span class="exp-item__description">
+            {{ expItem.description }}
+          </span>
+        </div>
+        <template v-for="project in expItem.projects" :key="project.title">
+          <div></div>
+          <div class="exp-item__project">
             <div>
               {{ project.title }}
             </div>
-            <ul>
-              <li v-for="point in project.points" :key="point">{{ point }}</li>
+            <ul class="nav__body">
+              <li class="nav__item" v-for="point in project.points" :key="point">{{ point }}</li>
             </ul>
             <div>
-              <span v-for="item in project.stack" :key="item" style="padding: 5px">
+              <span class="bubble" v-for="item in project.stack" :key="item">
                 {{ item }}
               </span>
             </div>
           </div>
-        </div>
+        </template>
       </div>
     </section>
     <!-- projects -->
@@ -124,14 +122,46 @@ const petProjects = ['Шахматы', 'Верстка', 'Музыка']
 
 .exp-item {
   margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
 }
 
 .exp-item__header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.exp-item__description {
+  opacity: 0.6;
+  margin-left: 1rem;
+}
+
+.exp-item__dates {
+  opacity: 0.6;
 }
 
 .exp-item__project {
   margin-bottom: 20px;
+}
+
+.nav {
+  padding-top: 4rem;
+}
+
+.nav__body {
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+}
+
+.nav__item {
+  cursor: pointer;
+  width: fit-content;
+}
+
+.bubble {
+  padding: 0.3rem 0.6rem;
+  margin-inline: 0.2rem;
+  border-radius: 1rem;
+  background-color: var(--vt-c-divider-light-1);
 }
 </style>

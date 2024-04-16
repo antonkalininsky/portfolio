@@ -1,5 +1,6 @@
 <script setup>
 import RightColumn from './components/RightColumn.vue'
+
 const navItems = [
   {
     title: 'Обо мне',
