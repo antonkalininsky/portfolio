@@ -98,7 +98,7 @@ const links = [
 <template>
   <div class="main">
     <!-- left column -->
-    <div>
+    <div class="face">
       <div>
         <!-- face -->
         <div>Polosin Anton</div>
@@ -108,14 +108,14 @@ const links = [
           <div v-for="item in navItems" :key="item.title">{{ item.title }}</div>
         </div>
       </div>
-      <div>
+      <div class="face__footer">
         <!-- links -->
-        <div v-for="link in links" :key="link.title">{{ link.title }}</div>
+        <span v-for="link in links" :key="link.title">{{ link.title + ' ' }}</span>
       </div>
     </div>
 
     <!-- right column -->
-    <div>
+    <div class="content">
       <!-- about -->
       <div>
         Привет! Я - фронтенд разработчик с сильными софт скилами. Ценю качественный код и отлаженные
@@ -170,7 +170,23 @@ const links = [
 <style scoped>
 .main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
+}
+
+.face {
+  padding: 4rem 0;
+  position: sticky;
+  height: calc(100vh - 4rem);
+  top: 0;
+}
+
+.face__footer {
+  position: absolute;
+  bottom: 0;
+}
+
+.content {
+  padding: 4rem 0;
 }
 
 .exp-item {
