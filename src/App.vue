@@ -76,6 +76,23 @@ const navItems = [
     title: 'Проекты'
   }
 ]
+
+const petProjects = ['Шахматы', 'Верстка', 'Музыка']
+
+const links = [
+  {
+    title: 'gitHub',
+    url: 'google.com'
+  },
+  {
+    title: 'gitHub',
+    url: 'google.com'
+  },
+  {
+    title: 'gitHub',
+    url: 'google.com'
+  }
+]
 </script>
 
 <template>
@@ -85,7 +102,7 @@ const navItems = [
       <div>
         <!-- face -->
         <div>Polosin Anton</div>
-        <div>frontent developer</div>
+        <div>frontend developer</div>
         <!-- nav -->
         <div>
           <div v-for="item in navItems" :key="item.title">{{ item.title }}</div>
@@ -93,7 +110,7 @@ const navItems = [
       </div>
       <div>
         <!-- links -->
-        <div>links</div>
+        <div v-for="link in links" :key="link.title">{{ link.title }}</div>
       </div>
     </div>
 
@@ -142,9 +159,9 @@ const navItems = [
       <!-- projects -->
       <div>
         <div>Проекты</div>
-        <div>Шахматы</div>
-        <div>Шахматы</div>
-        <div>Шахматы</div>
+        <ul>
+          <li v-for="item in petProjects" :key="item">{{ item }}</li>
+        </ul>
       </div>
     </div>
   </div>
