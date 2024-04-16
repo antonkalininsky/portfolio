@@ -1,83 +1,19 @@
 <script setup>
-const experience = [
-  {
-    title: 'ООО КТ Комплекс',
-    description: 'Грант',
-    dates: '2022 - 2023',
-    projects: [
-      {
-        title: 'MES система для производства',
-        points: [
-          'разрабатывал веб интерфейс с различными формами отображения информации: графики, таблицы, блок-схемы',
-          'реализовывал авторизацию и различные уровни доступа для пользователей',
-          'занимался менторством, проводил код ревью'
-        ],
-        stack: ['vue3', 'vue-router', 'vuex', 'chartjs']
-      }
-    ]
-  },
-  {
-    title: 'ТОО Dzhandosov Soft',
-    description: 'Стартап',
-    dates: 'Май - Июль 2023',
-    projects: [
-      {
-        title: 'Мобильное приложение такси',
-        points: [
-          'разрабатывал интерфейс заказа такси',
-          'решал задачу восстановления состояния после закрытия приложения',
-          'подключал карту 2gis и реализовывал функционал отображения позиции клиента и построения пути'
-        ],
-        stack: ['vue3', 'vue-router', 'pinia', 'vuetify', 'axios', '2gis API']
-      },
-      {
-        title: 'CRM для тренажерного зала',
-        points: [
-          'реализовывал интерфейсы для создания и управления аккаунтами посетителей, аккаунтами тренеров, абонементами и групповыми занятиями',
-          'реализовывал интерфейс регистрации посещений тренажерного зала',
-          'реализовывал дашборд для отдела продаж',
-          'рефакторил кодовую базу, внедрил модульную архитектуру',
-          'писал тесты для серверных запросов',
-          'подключал серверные запросы и участвовал в проектировании API'
-        ],
-        stack: ['vue3', 'vue-router', 'vuex', 'vuetify', 'axios', 'jest']
-      }
-    ]
-  },
-  {
-    title: 'ООО Аврора Холдинг',
-    description: 'Продуктовая разработка',
-    dates: '2023 - Н.В.',
-    projects: [
-      {
-        title: 'ERP для производства',
-        points: [
-          'решал оптимизационные проблемы с точки зрения алгоритмов, отрисовки и серверных запросов; добился многократного прироста производительности',
-          'реализовывал сложную бизнес-логику на стороне клиента',
-          'дорабатывал ui kit',
-          'рефакторил кодовую базу, провел декомпозицию, применял DRY',
-          'участвовал в принятии архитектурных решений',
-          'подключал серверные запросы и участвовал в проектировании API'
-        ],
-        stack: ['nuxt2', 'vuex', 'axios', 'buefy', 'tailwindcss', 'sass']
-      }
-    ]
-  }
-]
-
+import RightColumn from './components/RightColumn.vue'
 const navItems = [
   {
-    title: 'Обо мне'
+    title: 'Обо мне',
+    key: 'about'
   },
   {
-    title: 'Опыт'
+    title: 'Опыт',
+    key: 'experience'
   },
   {
-    title: 'Проекты'
+    title: 'Проекты',
+    key: 'projects'
   }
 ]
-
-const petProjects = ['Шахматы', 'Верстка', 'Музыка']
 
 const links = [
   {
@@ -93,6 +29,10 @@ const links = [
     url: 'google.com'
   }
 ]
+
+function handleNavigation(key) {
+  console.log('todo', key)
+}
 </script>
 
 <template>
@@ -101,104 +41,78 @@ const links = [
     <div class="face">
       <div>
         <!-- face -->
-        <div>Polosin Anton</div>
-        <div>frontend developer</div>
+        <h1>Полосин Антон</h1>
+        <div class="subheader">Frontend разработчик</div>
         <!-- nav -->
-        <div>
-          <div v-for="item in navItems" :key="item.title">{{ item.title }}</div>
-        </div>
+        <nav class="nav">
+          <ul class="nav__body">
+            <li
+              class="nav__item"
+              v-for="item in navItems"
+              :key="item.title"
+              @click="handleNavigation(item.key)"
+            >
+              {{ item.title }}
+            </li>
+          </ul>
+        </nav>
       </div>
       <div class="face__footer">
         <!-- links -->
         <span v-for="link in links" :key="link.title">{{ link.title + ' ' }}</span>
       </div>
     </div>
-
-    <!-- right column -->
-    <div class="content">
-      <!-- about -->
-      <div>
-        Привет! Я - фронтенд разработчик с сильными софт скилами. Ценю качественный код и отлаженные
-        рабочие процессы, готов участвовать в организации работы. Стремлюсь к постоянному
-        профессиональному развитию, не боюсь сложных задач.
-      </div>
-      <!-- experience -->
-      <div>
-        <div>Опыт</div>
-        <div v-for="expItem in experience" :key="expItem.title" class="exp-item">
-          <div class="exp-item__header">
-            <div>
-              {{ expItem.dates }}
-            </div>
-            <div>
-              {{ expItem.title }}
-            </div>
-            <div></div>
-            <div>
-              {{ expItem.description }}
-            </div>
-          </div>
-          <div>
-            <div v-for="project in expItem.projects" :key="project.title" class="exp-item__project">
-              <div>
-                {{ project.title }}
-              </div>
-              <ul>
-                <li v-for="point in project.points" :key="point">{{ point }}</li>
-              </ul>
-              <div>
-                Стэк:
-                <span v-for="item in project.stack" :key="item" style="padding: 5px">
-                  {{ item }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- projects -->
-      <div>
-        <div>Проекты</div>
-        <ul>
-          <li v-for="item in petProjects" :key="item">{{ item }}</li>
-        </ul>
-      </div>
-    </div>
+    <RightColumn />
   </div>
 </template>
 
 <style scoped>
+h1 {
+  line-height: 3rem;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.subheader {
+  line-height: 3rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.nav {
+  padding-top: 4rem;
+}
+
+.nav__body {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav__item {
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.nav__item:hover {
+  text-decoration: underline;
+}
+
 .main {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
+  column-gap: 50px;
 }
 
 .face {
-  padding: 4rem 0;
+  padding: 5rem 0;
   position: sticky;
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 5rem);
   top: 0;
 }
 
 .face__footer {
   position: absolute;
   bottom: 0;
-}
-
-.content {
-  padding: 4rem 0;
-}
-
-.exp-item {
-  margin-bottom: 40px;
-}
-
-.exp-item__header {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.exp-item__project {
-  margin-bottom: 20px;
 }
 </style>
