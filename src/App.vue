@@ -1,98 +1,47 @@
-<script setup lang="ts">
-import { ref } from 'vue';
-import BioComponent from './components/BioComponent.vue';
-import ExperienceComponent from './components/ExperienceComponent.vue';
-import DemoComponent from './components/DemoComponent.vue';
-
-const navMap = {
-  BioComponent,
-  ExperienceComponent,
-  DemoComponent
-}
-
-const navKey = ref('BioComponent')
-
-const navItems = [
-  {
-    title: 'Bio',
-    key: 'BioComponent'
-  },
-  {
-    title: 'Experience',
-    key: 'ExperienceComponent'
-  },
-  {
-    title: 'Demo',
-    key: 'DemoComponent'
-  }
-]
-
+<script setup>
+import HelloWorld from './components/HelloWorld.vue'
+import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <template>
-  <div class="main">
-    <div class="main__column">
-      <div class="header">
-        <div class="header__name">
-          Polosin Anton
-        </div>
-        <div class="header__subname">
-          frontend developer
-        </div>
-      </div>
-      <div class="navigation">
-        <div
-          v-for="item in navItems"
-          :key="item.key"
-          @click="() => navKey = item.key"
-          class="navigation__item"
-        >
-          {{ item.title }}
-        </div>
-      </div>
+  <header>
+    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+
+    <div class="wrapper">
+      <HelloWorld msg="You did it!" />
     </div>
-    <div class="main__column main__column--right">
-      <component
-        :is="navMap[navKey]"
-      />
-    </div>
-  </div>
+  </header>
+
+  <main>
+    <TheWelcome />
+  </main>
 </template>
 
 <style scoped>
-.main {
-  display: grid;
-  grid-template-columns: auto auto;
-  column-gap: 20px;
-  border: 1px solid red;
-  padding: 2rem;
+header {
+  line-height: 1.5;
 }
 
-.main__column--right {
-  width: 600px;
-  height: 400px;
-  max-width: 600px;
-  max-height: 400px;
-  overflow: auto;
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
 }
 
-.header {
-  margin-bottom: 20px;
-}
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
 
-.header__name {
-  white-space: nowrap;
-}
+  .logo {
+    margin: 0 2rem 0 0;
+  }
 
-.header__subname {
-  white-space: nowrap;
-}
-
-.navigation__item {
-  cursor: pointer;
-}
-
-.navigation__item:hover {
-  text-decoration: underline;
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
 }
 </style>
