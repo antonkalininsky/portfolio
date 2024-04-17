@@ -24,3 +24,7 @@ a,
 .section {
   padding-bottom: 5rem;
 }
+
+.section:last-child {
+  padding-bottom: 0;
+}

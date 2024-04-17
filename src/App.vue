@@ -91,7 +91,7 @@ h1 {
 
 .nav__item {
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 1.6rem;
   width: fit-content;
 }
 
