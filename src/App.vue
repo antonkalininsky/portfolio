@@ -1,12 +1,29 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import RightColumn from './components/RightColumn.vue'
 import { links } from './data/links'
 import { navItems } from './data/navItems'
 
 const rightColumn = ref()
 
+const navStyling = computed(() => {
+  console.log(currentViewPosition.value)
+  let aboutSection = false,
+    experienceSection = false,
+    projectSection = false
+  return {
+    aboutSection,
+    experienceSection,
+    projectSection
+  }
+})
+
+const currentViewPosition = computed(
+  () => document.documentElement.scrollTop || document.body.scrollTop
+)
+
 function handleNavigation(key) {
+  console.log(document.documentElement.scrollTop || document.body.scrollTop)
   rightColumn.value.scrollToSection(key)
 }
 </script>
@@ -24,6 +41,7 @@ function handleNavigation(key) {
           <ul class="nav__body">
             <li
               class="nav__item"
+              :class="{ test: navStyling[item.key] }"
               v-for="item in navItems"
               :key="item.title"
               @click="handleNavigation(item.key)"
@@ -43,6 +61,10 @@ function handleNavigation(key) {
 </template>
 
 <style scoped>
+.test {
+  color: red !important;
+}
+
 h1 {
   line-height: 3rem;
   font-size: 3rem;
