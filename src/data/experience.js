@@ -58,7 +58,7 @@ const experience = [
           'реализовывал авторизацию и различные уровни доступа для пользователей',
           'занимался менторством, проводил код ревью'
         ],
-        stack: ['JavaScript', 'Vue3', 'Vue-Router', 'Vuex', 'CSS3', 'Chart-js']
+        stack: ['JavaScript', 'Vue3', 'Vue-Router', 'Vuex', 'CSS3', 'ChartJS']
       }
     ]
   }
