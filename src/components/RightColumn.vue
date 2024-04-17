@@ -8,7 +8,7 @@ const experienceSection = ref()
 const projectSection = ref()
 
 function scrollToSection(key) {
-  this.$refs[key].scrollIntoView()
+  this.$refs[key].scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 defineExpose({
@@ -19,7 +19,8 @@ defineExpose({
   <!-- right column -->
   <div class="content">
     <!-- about -->
-    <section class="section" ref="aboutSection">
+    <section class="section">
+      <div class="section__marker" ref="aboutSection"></div>
       <div style="margin-bottom: 10px">
         Привет! Я - фронтенд разработчик с сильными софт скилами. Ценю качественный код и отлаженные
         рабочие процессы, готов участвовать в организации работы. Стремлюсь к постоянному
@@ -35,7 +36,8 @@ defineExpose({
       </div>
     </section>
     <!-- experience -->
-    <section class="section" ref="experienceSection">
+    <section class="section">
+      <div class="section__marker" ref="experienceSection"></div>
       <div v-for="expItem in experience" :key="expItem.title" class="exp-item">
         <div class="exp-item__dates">
           {{ expItem.dates }}
@@ -65,7 +67,8 @@ defineExpose({
       </div>
     </section>
     <!-- projects -->
-    <section class="section" ref="projectSection">
+    <section class="section">
+      <div class="section__marker" ref="projectSection"></div>
       <div>Проекты</div>
       <ul>
         <li v-for="item in petProjects" :key="item">{{ item }}</li>

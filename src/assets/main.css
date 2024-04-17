@@ -23,8 +23,14 @@ a,
 
 .section {
   padding-bottom: 5rem;
+  position: relative;
 }
 
 .section:last-child {
   padding-bottom: 0;
+}
+
+.section__marker {
+  position: absolute;
+  top: -5rem;
 }
