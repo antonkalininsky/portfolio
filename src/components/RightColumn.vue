@@ -1,13 +1,26 @@
 <script setup>
 import { experience } from '@/data/experience'
+import { ref } from 'vue'
+
+const aboutSection = ref()
+const experienceSection = ref()
+const projectSection = ref()
 
 const petProjects = ['Шахматы', 'Верстка', 'Музыка']
+
+function scrollToSection(key) {
+  this.$refs[key].scrollIntoView()
+}
+
+defineExpose({
+  scrollToSection
+})
 </script>
 <template>
   <!-- right column -->
   <div class="content">
     <!-- about -->
-    <section class="section">
+    <section class="section" ref="aboutSection">
       <div style="margin-bottom: 10px">
         Привет! Я - фронтенд разработчик с сильными софт скилами. Ценю качественный код и отлаженные
         рабочие процессы, готов участвовать в организации работы. Стремлюсь к постоянному
@@ -23,7 +36,7 @@ const petProjects = ['Шахматы', 'Верстка', 'Музыка']
       </div>
     </section>
     <!-- experience -->
-    <section class="section">
+    <section class="section" ref="experienceSection">
       <div v-for="expItem in experience" :key="expItem.title" class="exp-item">
         <div class="exp-item__dates">
           {{ expItem.dates }}
@@ -53,7 +66,7 @@ const petProjects = ['Шахматы', 'Верстка', 'Музыка']
       </div>
     </section>
     <!-- projects -->
-    <section class="section">
+    <section class="section" ref="projectSection">
       <div>Проекты</div>
       <ul>
         <li v-for="item in petProjects" :key="item">{{ item }}</li>

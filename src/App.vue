@@ -1,18 +1,19 @@
 <script setup>
+import { ref } from 'vue'
 import RightColumn from './components/RightColumn.vue'
 
 const navItems = [
   {
     title: 'Обо мне',
-    key: 'about'
+    key: 'aboutSection'
   },
   {
     title: 'Опыт',
-    key: 'experience'
+    key: 'experienceSection'
   },
   {
     title: 'Проекты',
-    key: 'projects'
+    key: 'projectSection'
   }
 ]
 
@@ -31,8 +32,10 @@ const links = [
   }
 ]
 
+const rightColumn = ref()
+
 function handleNavigation(key) {
-  console.log('todo', key)
+  rightColumn.value.scrollToSection(key)
 }
 </script>
 
@@ -63,7 +66,7 @@ function handleNavigation(key) {
         <span v-for="link in links" :key="link.title">{{ link.title + ' ' }}</span>
       </div>
     </div>
-    <RightColumn />
+    <RightColumn ref="rightColumn" />
   </div>
 </template>
 
