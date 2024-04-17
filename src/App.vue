@@ -1,36 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import RightColumn from './components/RightColumn.vue'
-
-const navItems = [
-  {
-    title: 'Обо мне',
-    key: 'aboutSection'
-  },
-  {
-    title: 'Опыт',
-    key: 'experienceSection'
-  },
-  {
-    title: 'Проекты',
-    key: 'projectSection'
-  }
-]
-
-const links = [
-  {
-    title: 'gitHub',
-    url: 'google.com'
-  },
-  {
-    title: 'gitHub',
-    url: 'google.com'
-  },
-  {
-    title: 'gitHub',
-    url: 'google.com'
-  }
-]
+import { links } from './data/links'
+import { navItems } from './data/navItems'
 
 const rightColumn = ref()
 

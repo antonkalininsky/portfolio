@@ -1,12 +1,11 @@
 <script setup>
+import { petProjects } from '@/data/petProjects'
 import { experience } from '@/data/experience'
 import { ref } from 'vue'
 
 const aboutSection = ref()
 const experienceSection = ref()
 const projectSection = ref()
-
-const petProjects = ['Шахматы', 'Верстка', 'Музыка']
 
 function scrollToSection(key) {
   this.$refs[key].scrollIntoView()
