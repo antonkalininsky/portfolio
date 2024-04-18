@@ -5,12 +5,26 @@ import { links } from './data/links'
 import { navItems } from './data/navItems'
 
 const rightColumn = ref()
+const scrollPosition = ref()
 
 const navStyling = computed(() => {
-  console.log(currentViewPosition.value)
-  let aboutSection = false,
-    experienceSection = false,
-    projectSection = false
+  let aboutSection = false, // 0
+    experienceSection = false, // 458
+    projectSection = false // 1348
+  if (scrollPosition.value >= 0 && scrollPosition.value < 458) {
+    aboutSection = true
+  }
+  if (scrollPosition.value >= 458 && scrollPosition.value < 1348) {
+    experienceSection = true
+  }
+
+
+
+  if (scrollPosition.value > 500) {
+    experienceSection = true
+  } else {
+    aboutSection = true
+  }
   return {
     aboutSection,
     experienceSection,
@@ -18,12 +32,13 @@ const navStyling = computed(() => {
   }
 })
 
-const currentViewPosition = computed(
-  () => document.documentElement.scrollTop || document.body.scrollTop
-)
+init()
+
+function init() {
+  window.addEventListener('scroll', () => scrollPosition.value = document.documentElement.scrollTop || document.body.scrollTop)
+}
 
 function handleNavigation(key) {
-  console.log(document.documentElement.scrollTop || document.body.scrollTop)
   rightColumn.value.scrollToSection(key)
 }
 </script>
