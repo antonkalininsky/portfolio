@@ -3,6 +3,7 @@ import { petProjects } from '@/data/petProjects'
 import { experience } from '@/data/experience'
 import { ref } from 'vue'
 import SvgIcon from '@jamescoyle/vue-icon'
+import { mdiArrowTopRight } from '@mdi/js'
 
 const aboutSection = ref()
 const experienceSection = ref()
@@ -68,7 +69,7 @@ defineExpose({
       </div>
     </section>
     <!-- projects -->
-    <section class="section" style="margin-bottom: 1000px;">
+    <section class="section" style="margin-bottom: 150px;">
       <div class="section__marker" ref="projectSection"></div>
       <div class="pet">
         <div class="pet-item" v-for="petItem in petProjects" :key="petItem.title">
@@ -82,11 +83,27 @@ defineExpose({
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam officiis ut consectetur. Nesciunt necessitatibus sed tempore explicabo nemo quas quisquam esse neque eius, debitis iusto. Ipsam cupiditate dolor delectus impedit?
           </div>
           <div class="pet-item__links">
-            <div class="pet-item__link">
-              Демо
+            <div class="pet-item__link link">
+              <div class="link__title">
+                Демо
+              </div>
+              <svg-icon
+                class="link__icon"
+                type="mdi"
+                :path="mdiArrowTopRight"
+                size="16"
+              />
             </div>
-            <div class="pet-item__link">
-              Исходники
+            <div class="pet-item__link link">
+              <div class="link__title">
+                Исходники
+              </div>
+              <svg-icon
+                class="link__icon"
+                type="mdi"
+                :path="mdiArrowTopRight"
+                size="16"
+              />
             </div>
           </div>
         </div>
@@ -95,6 +112,35 @@ defineExpose({
   </div>
 </template>
 <style scoped>
+.link {
+  position: relative;
+  width: min-content;
+  opacity: 0.7;
+  transition: 0.1s;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+.link:active {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+
+.link__icon {
+  position: absolute;
+  top: 5px;
+  right: -16px;
+  transition: 0.1s;
+}
+
+.link:hover .link__icon {
+  top: 3px;
+  right: -20px;
+}
+
 .pet-item {
   margin-bottom: 3rem;
 }
@@ -112,17 +158,13 @@ defineExpose({
 }
 
 .pet-item__links {
-  width: 50%;
+  width: 30%;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
 .pet-item__link {
   cursor: pointer;
-}
-
-.pet-item__link:hover {
-  text-decoration: underline;
 }
 
 .pet-item__title {
