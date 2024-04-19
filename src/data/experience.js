@@ -1,6 +1,6 @@
 const experience = [
   {
-    title: 'ООО Аврора Холдинг',
+    title: 'ТОО Аврора Холдинг',
     description: 'Продуктовая разработка',
     dates: '2023 - Н.В.',
     projects: [

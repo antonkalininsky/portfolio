@@ -11,19 +11,14 @@ const navStyling = computed(() => {
   let aboutSection = false, // 0
     experienceSection = false, // 458
     projectSection = false // 1348
-  if (scrollPosition.value >= 0 && scrollPosition.value < 458) {
+  if (scrollPosition.value >= 0 && scrollPosition.value < 300) {
     aboutSection = true
   }
-  if (scrollPosition.value >= 458 && scrollPosition.value < 1348) {
+  if (scrollPosition.value >= 300 && scrollPosition.value < 1000) {
     experienceSection = true
   }
-
-
-
-  if (scrollPosition.value > 500) {
-    experienceSection = true
-  } else {
-    aboutSection = true
+  if (scrollPosition.value >= 1000) {
+    projectSection = true
   }
   return {
     aboutSection,
@@ -35,7 +30,8 @@ const navStyling = computed(() => {
 init()
 
 function init() {
-  window.addEventListener('scroll', () => scrollPosition.value = document.documentElement.scrollTop || document.body.scrollTop)
+  scrollPosition.value = Math.round(document.documentElement.scrollTop || document.body.scrollTop)
+  window.addEventListener('scroll', () => scrollPosition.value = Math.round(document.documentElement.scrollTop || document.body.scrollTop))
 }
 
 function handleNavigation(key) {

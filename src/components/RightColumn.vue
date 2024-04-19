@@ -94,6 +94,7 @@ defineExpose({
 
 .exp-item__description {
   opacity: 0.6;
+  font-weight: initial;
   margin-left: 1rem;
 }
 
