@@ -52,7 +52,7 @@ function handleNavigation(key) {
           <ul class="nav__body">
             <li
               class="nav__item"
-              :class="{ test: navStyling[item.key] }"
+              :class="{ active: navStyling[item.key] }"
               v-for="item in navItems"
               :key="item.title"
               @click="handleNavigation(item.key)"
@@ -72,10 +72,6 @@ function handleNavigation(key) {
 </template>
 
 <style scoped>
-.test {
-  color: red !important;
-}
-
 h1 {
   line-height: 3rem;
   font-size: 3rem;
@@ -101,10 +97,30 @@ h1 {
   cursor: pointer;
   margin-bottom: 1.6rem;
   width: fit-content;
+  position: relative;
+  font-weight: 500;
 }
 
-.nav__item:hover {
-  text-decoration: underline;
+.nav__item::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0px;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-text);
+  opacity: 0.3;
+  transition: 0.3s;
+}
+
+.nav__item:hover.nav__item::after {
+  width: 100%;
+}
+
+.nav__item.active.nav__item::after {
+  opacity: 0.8;
+  width: 100%;
 }
 
 .main {
