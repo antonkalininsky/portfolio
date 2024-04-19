@@ -72,9 +72,22 @@ defineExpose({
       <div class="section__marker" ref="projectSection"></div>
       <div class="pet">
         <div class="pet-item" v-for="petItem in petProjects" :key="petItem.title">
-          <svg-icon type="mdi" :path="petItem.icon" size="50" />
-          <div class="pet-item__title">
-            {{ petItem.title }}
+          <div class="pet-item__header">
+            <svg-icon type="mdi" :path="petItem.icon" size="50" />
+            <div class="pet-item__title">
+              {{ petItem.title }}
+            </div>
+          </div>
+          <div class="pet-item__body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam officiis ut consectetur. Nesciunt necessitatibus sed tempore explicabo nemo quas quisquam esse neque eius, debitis iusto. Ipsam cupiditate dolor delectus impedit?
+          </div>
+          <div class="pet-item__links">
+            <div class="pet-item__link">
+              Демо
+            </div>
+            <div class="pet-item__link">
+              Исходники
+            </div>
           </div>
         </div>
       </div>
@@ -82,23 +95,34 @@ defineExpose({
   </div>
 </template>
 <style scoped>
-.pet {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
 .pet-item {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  width: 10rem;
-  height: 10rem;
+  margin-bottom: 3rem;
 }
 
-.pet-item:hover {
-  outline: 2px solid  var(--vt-c-light-blue)
+.pet-item__header {
+  display: grid;
+  grid-template-columns: min-content auto;
+  column-gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pet-item__body {
+  margin-bottom: 0.5rem;
+}
+
+.pet-item__links {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.pet-item__link {
+  cursor: pointer;
+}
+
+.pet-item__link:hover {
+  text-decoration: underline;
 }
 
 .pet-item__title {
