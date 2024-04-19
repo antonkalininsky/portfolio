@@ -1,16 +1,26 @@
+import { mdiEmailOutline, mdiSendVariantOutline, mdiGithub, mdiLinkedin } from '@mdi/js';
+
 const links = [
   {
-    title: 'gitHub',
-    url: 'google.com'
+    icon: mdiEmailOutline,
+    title: 'Mail',
+    url: 'chadik.free@gmail.com'
   },
   {
-    title: 'gitHub',
-    url: 'google.com'
+    icon: mdiSendVariantOutline,
+    title: 'Telegram',
+    url: '@a_kalininsky'
   },
   {
-    title: 'gitHub',
-    url: 'google.com'
-  }
+    icon: mdiGithub,
+    title: 'GitHub',
+    url: '/antonkalininsky'
+  },
+  {
+    icon: mdiLinkedin,
+    title: 'LinkedIn',
+    url: 'LinkedInLinkedInLinkedIn'
+  },
 ]
 
 export { links }

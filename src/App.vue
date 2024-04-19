@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import RightColumn from './components/RightColumn.vue'
 import { links } from './data/links'
 import { navItems } from './data/navItems'
+import SvgIcon from '@jamescoyle/vue-icon'
 
 const rightColumn = ref()
 const scrollPosition = ref()
@@ -64,7 +65,16 @@ function handleNavigation(key) {
       </div>
       <div class="face__footer">
         <!-- links -->
-        <span v-for="link in links" :key="link.title">{{ link.title + ' ' }}</span>
+        <div
+          class="link"
+          v-for="link in links"
+          :key="link.title"
+        >
+          <svg-icon type="mdi" :path="link.icon" />
+          <div class="link__title">
+            {{ link.title }}
+          </div>
+        </div>
       </div>
     </div>
     <RightColumn ref="rightColumn" />
@@ -72,6 +82,18 @@ function handleNavigation(key) {
 </template>
 
 <style scoped>
+.link {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: min-content 25% auto;
+  column-gap: 10px;
+  margin-bottom: 10px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
 h1 {
   line-height: 3rem;
   font-size: 3rem;

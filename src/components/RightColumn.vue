@@ -2,6 +2,7 @@
 import { petProjects } from '@/data/petProjects'
 import { experience } from '@/data/experience'
 import { ref } from 'vue'
+import SvgIcon from '@jamescoyle/vue-icon'
 
 const aboutSection = ref()
 const experienceSection = ref()
@@ -67,16 +68,44 @@ defineExpose({
       </div>
     </section>
     <!-- projects -->
-    <section class="section">
+    <section class="section" style="margin-bottom: 1000px;">
       <div class="section__marker" ref="projectSection"></div>
-      <div>Проекты</div>
-      <ul>
-        <li v-for="item in petProjects" :key="item">{{ item }}</li>
-      </ul>
+      <div class="pet">
+        <div class="pet-item" v-for="petItem in petProjects" :key="petItem.title">
+          <svg-icon type="mdi" :path="petItem.icon" size="50" />
+          <div class="pet-item__title">
+            {{ petItem.title }}
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </template>
 <style scoped>
+.pet {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pet-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 10rem;
+  height: 10rem;
+}
+
+.pet-item:hover {
+  outline: 2px solid  var(--vt-c-light-blue)
+}
+
+.pet-item__title {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
 .content {
   padding: 5rem 0;
 }
