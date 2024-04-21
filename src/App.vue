@@ -69,8 +69,17 @@ function handleNavigation(key) {
           class="link"
           v-for="link in links"
           :key="link.title"
+          v-tippy="{
+            content: link.title,
+            delay: [500, null]
+          }"
         >
-          <svg-icon class="link__icon" type="mdi" :path="link.icon" size="30"/>
+          <svg-icon
+            class="link__icon"
+            type="mdi"
+            :path="link.icon"
+            size="30"
+          />
         </div>
       </div>
     </div>

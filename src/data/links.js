@@ -3,7 +3,7 @@ import { mdiEmailOutline, mdiSendVariantOutline, mdiGithub, mdiLinkedin } from '
 const links = [
   {
     icon: mdiEmailOutline,
-    title: 'Mail',
+    title: 'Email',
     url: 'chadik.free@gmail.com'
   },
   {
