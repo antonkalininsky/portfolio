@@ -70,10 +70,7 @@ function handleNavigation(key) {
           v-for="link in links"
           :key="link.title"
         >
-          <svg-icon type="mdi" :path="link.icon" />
-          <div class="link__title">
-            {{ link.title }}
-          </div>
+          <svg-icon class="link__icon" type="mdi" :path="link.icon" size="30"/>
         </div>
       </div>
     </div>
@@ -83,15 +80,20 @@ function handleNavigation(key) {
 
 <style scoped>
 .link {
-  cursor: pointer;
-  display: grid;
-  grid-template-columns: min-content 25% auto;
-  column-gap: 10px;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.link:hover {
-  text-decoration: underline;
+.link__icon {
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.link__icon:hover {
+  transform: scale(1.2);
+  opacity: 1;
 }
 
 h1 {
@@ -161,5 +163,9 @@ h1 {
 .face__footer {
   position: absolute;
   bottom: 0;
+  width: 50%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  column-gap: 20px;
 }
 </style>

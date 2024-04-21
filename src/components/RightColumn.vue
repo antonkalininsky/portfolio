@@ -69,7 +69,7 @@ defineExpose({
       </div>
     </section>
     <!-- projects -->
-    <section class="section" style="margin-bottom: 150px;">
+    <section class="section" style="margin-bottom: 140px;">
       <div class="section__marker" ref="projectSection"></div>
       <div class="pet">
         <div class="pet-item" v-for="petItem in petProjects" :key="petItem.title">
@@ -211,7 +211,6 @@ defineExpose({
 }
 
 .nav__item {
-  cursor: pointer;
   width: fit-content;
 }
 
@@ -221,5 +220,6 @@ defineExpose({
   border-radius: 1rem;
   background-color: var(--vt-c-light-blue);
   color: var(--vt-c-white-soft);
+  cursor: pointer;
 }
 </style>
