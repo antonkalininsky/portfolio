@@ -24,17 +24,10 @@ defineExpose({
     <section class="section">
       <div class="section__marker" ref="aboutSection"></div>
       <div style="margin-bottom: 10px">
-        Привет! Я - фронтенд разработчик с сильными софт скилами. Ценю качественный код и отлаженные
-        рабочие процессы, готов участвовать в организации работы. Стремлюсь к постоянному
-        профессиональному развитию, не боюсь сложных задач.
+        Привет! Я - фронтенд разработчик с сильными софт скилами. Это моя персональная страница, тут вы можете найти подробную информацию о моей профессиональной деятельности, также можете <a href="https://www.google.com" target="_blank">скачать мое резюме в формате pdf</a>.
       </div>
       <div style="margin-bottom: 10px">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum praesentium molestiae
-        consequuntur mollitia, debitis rem optio necessitatibus, ullam nobis non exercitationem!
-        Similique neque dolor corrupti aliquam impedit ducimus perspiciatis maxime. Lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Illum praesentium molestiae consequuntur
-        Similique neque dolor corrupti aliquam impedit ducimus perspiciatis maxime. Lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Illum praesentium molestiae consequuntur
+        Мой опыт фронтенд разработки 2 года, основной фреймворк - Vue. Я ценю качественный код и отлаженные рабочие процессы. Стремлюсь к постоянному профессиональному развитию, не боюсь сложных задач.
       </div>
     </section>
     <!-- experience -->
