@@ -69,7 +69,7 @@ defineExpose({
       </div>
     </section>
     <!-- projects -->
-    <section class="section" style="margin-bottom: 140px;">
+    <section class="section" style="margin-bottom: 300px;">
       <div class="section__marker" ref="projectSection"></div>
       <div class="pet">
         <div class="pet-item" v-for="petItem in petProjects" :key="petItem.title">
@@ -119,13 +119,17 @@ defineExpose({
   transition: 0.1s;
 }
 
+.link__title {
+  font-weight: 500;
+}
+
 .link:hover {
   opacity: 1;
 }
 
 .link:active {
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1.5px;
   text-underline-offset: 5px;
 }
 
@@ -215,12 +219,12 @@ defineExpose({
 }
 
 .bubble {
+  position: relative;
   padding: 0.3rem 0.6rem;
   margin-inline: 0.2rem;
   border-radius: 1rem;
   font-weight: 600;
   background-color: var(--vt-c-light-blue);
   color: var(--vt-c-white-soft);
-  cursor: pointer;
 }
 </style>
