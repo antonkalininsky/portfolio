@@ -218,6 +218,7 @@ defineExpose({
   padding: 0.3rem 0.6rem;
   margin-inline: 0.2rem;
   border-radius: 1rem;
+  font-weight: 600;
   background-color: var(--vt-c-light-blue);
   color: var(--vt-c-white-soft);
   cursor: pointer;
