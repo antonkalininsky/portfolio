@@ -1,6 +1,7 @@
 const experience = [
   {
     title: 'ТОО Аврора Холдинг',
+    country: '🇰🇿',
     description: 'Продуктовая разработка',
     dates: '2023 - Н.В.',
     projects: [
@@ -20,6 +21,7 @@ const experience = [
   },
   {
     title: 'ТОО Dzhandosov Soft',
+    country: '🇰🇿',
     description: 'Стартап',
     dates: 'Май - Июль 2023',
     projects: [
@@ -48,6 +50,7 @@ const experience = [
   },
   {
     title: 'ООО КТ Комплекс',
+    country: '🇷🇺',
     description: 'Разработка по гранту',
     dates: '2022 - 2023',
     projects: [

@@ -7,19 +7,23 @@
   font-weight: normal;
 }
 
-a,
+a {
+  text-decoration: none;
+}
+
+/* a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: rgb(79, 167, 187);
   transition: 0.4s;
   padding: 3px;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    background-color: rgba(79, 167, 187, 0.2);
   }
-}
+} */
 
 .section {
   padding-bottom: 10rem;
