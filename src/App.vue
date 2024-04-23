@@ -38,6 +38,17 @@ function init() {
 function handleNavigation(key) {
   rightColumn.value.scrollToSection(key)
 }
+
+function handleLinkClick(link) {
+  if (link?.isMail) {
+    window.open(`mailto:${link.url}`)
+  } else {
+    const a = document.createElement('a')
+    a.target = '_blank'
+    a.href = link.url
+    a.click()
+  }
+}
 </script>
 
 <template>
@@ -73,6 +84,7 @@ function handleNavigation(key) {
             content: link.title,
             delay: [500, null]
           }"
+          @click="handleLinkClick(link)"
         >
           <svg-icon
             class="link__icon"
