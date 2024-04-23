@@ -3,7 +3,7 @@ import { petProjects } from '@/data/petProjects'
 import { experience } from '@/data/experience'
 import { ref } from 'vue'
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiArrowTopRight, mdiDownloadBoxOutline } from '@mdi/js'
+import { mdiArrowTopRight } from '@mdi/js'
 
 const aboutSection = ref()
 const experienceSection = ref()
@@ -24,10 +24,7 @@ defineExpose({
     <section class="section">
       <div class="section__marker" ref="aboutSection"></div>
       <div style="margin-bottom: 10px">
-        Привет! Я - фронтенд разработчик с сильными софт скилами. Это моя персональная страница, тут вы можете найти подробную информацию о моей профессиональной деятельности, также можете <a href="https://www.google.com" target="_blank">скачать моё резюме в формате PDF</a>.
-        <button class="download">
-          <svg-icon type="mdi" :path="mdiDownloadBoxOutline" />
-        </button>
+        Привет! Я - фронтенд разработчик с сильными софт скилами. Это моя персональная страница, тут вы можете найти подробную информацию о моей профессиональной деятельности, также можете <a class="download" href="/public/cv.pdf" download>скачать моё резюме в формате PDF</a>.
       </div>
       <div style="margin-bottom: 10px">
         Мой опыт фронтенд разработки 2 года, основной фреймворк - Vue. Я ценю качественный код и отлаженные рабочие процессы. Стремлюсь к постоянному профессиональному развитию, не боюсь сложных задач.
@@ -70,7 +67,7 @@ defineExpose({
       </div>
     </section>
     <!-- projects -->
-    <section class="section" style="margin-bottom: 300px;">
+    <section class="section" style="margin-bottom: 800px;">
       <div class="section__marker" ref="projectSection"></div>
       <div class="pet">
         <div class="pet-item" v-for="petItem in petProjects" :key="petItem.title">
@@ -114,9 +111,14 @@ defineExpose({
 </template>
 <style scoped>
 .download {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-decoration: underline;
+  opacity: 0.6;
+  transition: 0.2s;
+  color: rgb(var(--color-text));
+}
+
+.download:hover {
+  opacity: 1;
 }
 
 .link {
