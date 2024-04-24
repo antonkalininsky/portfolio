@@ -67,7 +67,7 @@ defineExpose({
       </div>
     </section>
     <!-- projects -->
-    <section class="section" style="margin-bottom: 800px;">
+    <section class="section" style="margin-bottom: calc(100vh - 305px);">
       <div class="section__marker" ref="projectSection"></div>
       <div class="pet">
         <div class="pet-item" v-for="petItem in petProjects" :key="petItem.title">
