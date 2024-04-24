@@ -211,6 +211,7 @@ defineExpose({
   font-weight: 500;
   margin-bottom: 1rem;
   display: flex;
+  flex-wrap: wrap;
   column-gap: 1rem;
 }
 
@@ -270,6 +271,12 @@ defineExpose({
   }
 
   .section__header {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .exp-item {
     display: block;
   }
 }
