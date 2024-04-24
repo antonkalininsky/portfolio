@@ -188,5 +188,40 @@ h1 {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   column-gap: 20px;
+  justify-items: flex-start;
+}
+
+@media screen and (max-width: 1024px) {
+  .main {
+    display: block;
+    grid-template-columns: unset;
+    column-gap: unset;
+  }
+
+  .face {
+    padding: 3rem 0 10rem 0;
+    position: relative;
+    height: auto;
+    width: 100%;
+  }
+
+  .face__footer {
+    display: flex;
+    bottom: 7rem;
+    width: 50%;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .link__icon {
+    opacity: 1;
+    transition: unset;
+  }
+
+  .link__icon:hover {
+    transform: unset;
+  }
 }
 </style>

@@ -32,9 +32,21 @@ a {
 
 .section:last-child {
   padding-bottom: 0;
+  margin-bottom: calc(100vh - 305px);
 }
 
 .section__marker {
   position: absolute;
   top: -5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .section {
+    padding-bottom: 4rem;
+  }
+
+  .section:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
 }

@@ -23,6 +23,7 @@ defineExpose({
     <!-- about -->
     <section class="section">
       <div class="section__marker" ref="aboutSection"></div>
+      <div class="section__header">Обо мне</div>
       <div style="margin-bottom: 10px">
         Привет! Я - фронтенд разработчик с сильными софт скилами. Это моя персональная страница, тут вы можете найти подробную информацию о моей профессиональной деятельности, также можете <a class="download" href="/polosin_frontend_cv.pdf" download>скачать моё резюме в формате PDF</a>.
       </div>
@@ -33,6 +34,7 @@ defineExpose({
     <!-- experience -->
     <section class="section">
       <div class="section__marker" ref="experienceSection"></div>
+      <div class="section__header">Опыт</div>
       <div v-for="expItem in experience" :key="expItem.title" class="exp-item">
         <div class="exp-item__dates">
           {{ expItem.dates }}
@@ -57,7 +59,7 @@ defineExpose({
             <ul class="nav__body">
               <li class="nav__item" v-for="point in project.points" :key="point">{{ point }}</li>
             </ul>
-            <div>
+            <div class="bubble-box">
               <span class="bubble" v-for="item in project.stack" :key="item">
                 {{ item }}
               </span>
@@ -67,8 +69,9 @@ defineExpose({
       </div>
     </section>
     <!-- projects -->
-    <section class="section" style="margin-bottom: calc(100vh - 305px);">
+    <section class="section">
       <div class="section__marker" ref="projectSection"></div>
+      <div class="section__header">Проекты</div>
       <div class="pet">
         <div class="pet-item" v-for="petItem in petProjects" :key="petItem.title">
           <div class="pet-item__header">
@@ -237,13 +240,37 @@ defineExpose({
   width: fit-content;
 }
 
+.bubble-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .bubble {
-  position: relative;
   padding: 0.3rem 0.6rem;
   margin-inline: 0.2rem;
+  margin-bottom: 0.2rem;
   border-radius: 1rem;
   font-weight: 600;
   background-color: var(--vt-c-light-blue);
   color: var(--vt-c-white-soft);
+  white-space: nowrap;
+}
+
+.section__header {
+  display: none;
+  position: relative;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .content {
+    padding: 0;
+  }
+
+  .section__header {
+    display: block;
+  }
 }
 </style>
