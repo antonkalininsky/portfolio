@@ -9,16 +9,16 @@ const rightColumn = ref()
 const scrollPosition = ref()
 
 const navStyling = computed(() => {
-  let aboutSection = false, // 0
-    experienceSection = false, // 458
-    projectSection = false // 1348
+  let aboutSection = false,
+    experienceSection = false,
+    projectSection = false
   if (scrollPosition.value >= 0 && scrollPosition.value < 300) {
     aboutSection = true
   }
-  if (scrollPosition.value >= 300 && scrollPosition.value < 1000) {
+  if (scrollPosition.value >= 300 && scrollPosition.value < 1700) {
     experienceSection = true
   }
-  if (scrollPosition.value >= 1000) {
+  if (scrollPosition.value >= 1700) {
     projectSection = true
   }
   return {
