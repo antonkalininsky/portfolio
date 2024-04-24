@@ -24,7 +24,7 @@ defineExpose({
     <section class="section">
       <div class="section__marker" ref="aboutSection"></div>
       <div style="margin-bottom: 10px">
-        Привет! Я - фронтенд разработчик с сильными софт скилами. Это моя персональная страница, тут вы можете найти подробную информацию о моей профессиональной деятельности, также можете <a class="download" href="/cv.pdf" download>скачать моё резюме в формате PDF</a>.
+        Привет! Я - фронтенд разработчик с сильными софт скилами. Это моя персональная страница, тут вы можете найти подробную информацию о моей профессиональной деятельности, также можете <a class="download" href="/polosin_frontend_cv.pdf" download>скачать моё резюме в формате PDF</a>.
       </div>
       <div style="margin-bottom: 10px">
         Мой опыт фронтенд разработки 2 года, основной фреймворк - Vue. Я ценю качественный код и отлаженные рабочие процессы. Стремлюсь к постоянному профессиональному развитию, не боюсь сложных задач.
@@ -78,10 +78,14 @@ defineExpose({
             </div>
           </div>
           <div class="pet-item__body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam officiis ut consectetur. Nesciunt necessitatibus sed tempore explicabo nemo quas quisquam esse neque eius, debitis iusto. Ipsam cupiditate dolor delectus impedit?
+            {{ petItem.description }}
           </div>
-          <div class="pet-item__links">
-            <div class="pet-item__link link">
+          <div class="pet-item__links" v-if="petItem?.links">
+            <a
+              class="pet-item__link link"
+              :href="petItem.links.demo"
+              target="_blank"
+            >
               <div class="link__title">
                 Демо
               </div>
@@ -91,8 +95,12 @@ defineExpose({
                 :path="mdiArrowTopRight"
                 size="16"
               />
-            </div>
-            <div class="pet-item__link link">
+            </a>
+            <a
+              class="pet-item__link link"
+              :href="petItem.links.source"
+              target="_blank"
+            >
               <div class="link__title">
                 Исходники
               </div>
@@ -102,7 +110,7 @@ defineExpose({
                 :path="mdiArrowTopRight"
                 size="16"
               />
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -122,6 +130,7 @@ defineExpose({
 }
 
 .link {
+  color: var(--color-text);
   position: relative;
   width: min-content;
   opacity: 0.7;
