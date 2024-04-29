@@ -24,10 +24,10 @@ defineExpose({
     <section class="section">
       <div class="section__marker" ref="aboutSection"></div>
       <div class="section__header">Обо мне</div>
-      <div style="margin-bottom: 10px">
+      <div class="about-me">
         Привет! Я - фронтенд разработчик с сильными софт скилами. Это моя персональная страница, тут вы можете найти подробную информацию о моей профессиональной деятельности, также можете <a class="download" href="/polosin_frontend_cv.pdf" download>скачать моё резюме в формате PDF</a>.
       </div>
-      <div style="margin-bottom: 10px">
+      <div class="about-me">
         Мой опыт фронтенд разработки 2 года, основной фреймворк - Vue. Я ценю качественный код и отлаженные рабочие процессы. Стремлюсь к постоянному профессиональному развитию, не боюсь сложных задач.
       </div>
     </section>
@@ -180,6 +180,7 @@ defineExpose({
 
 .pet-item__body {
   margin-bottom: 0.5rem;
+  line-height: clamp(1.4rem, 5vw, 1.6rem);
 }
 
 .pet-item__links {
@@ -193,7 +194,7 @@ defineExpose({
 }
 
 .pet-item__title {
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
   font-weight: 500;
 }
 
@@ -205,6 +206,11 @@ defineExpose({
   margin-bottom: 40px;
   display: grid;
   grid-template-columns: 0.3fr 1fr;
+  line-height: clamp(1.4rem, 5vw, 1.6rem);
+}
+
+.exp-item:last-child {
+  margin-bottom: 0;
 }
 
 .exp-item__header {
@@ -255,6 +261,7 @@ defineExpose({
   background-color: var(--vt-c-light-blue);
   color: var(--vt-c-white-soft);
   white-space: nowrap;
+  font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
 .section__header {
@@ -262,7 +269,12 @@ defineExpose({
   position: relative;
   font-weight: 500;
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+}
+
+.about-me {
+  margin-bottom: 10px;
+  line-height: clamp(1.4rem, 5vw, 1.6rem);
 }
 
 @media screen and (max-width: 1024px) {

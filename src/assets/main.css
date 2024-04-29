@@ -3,27 +3,13 @@
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding-inline: 2rem;
+  padding-inline: clamp(1rem, 5vw, 2rem);
   font-weight: normal;
 }
 
 a {
   text-decoration: none;
 }
-
-/* a,
-.green {
-  text-decoration: none;
-  color: rgb(79, 167, 187);
-  transition: 0.4s;
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: rgba(79, 167, 187, 0.2);
-  }
-} */
 
 .section {
   padding-bottom: 10rem;
@@ -42,7 +28,7 @@ a {
 
 @media screen and (max-width: 1024px) {
   .section {
-    padding-bottom: 4rem;
+    padding-bottom: clamp(1rem, 5vw, 4rem);
   }
 
   .section:last-child {

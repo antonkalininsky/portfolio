@@ -119,13 +119,13 @@ function handleLinkClick(link) {
 
 h1 {
   line-height: 3rem;
-  font-size: 3rem;
+  font-size: clamp(2rem, 10vw, 3rem);
   font-weight: 700;
 }
 
 .subheader {
-  line-height: 3rem;
-  font-size: 1.5rem;
+  line-height: clamp(2rem, 9vw, 3rem);
+  font-size: clamp(1rem, 5vw, 1.5rem);
   font-weight: 500;
 }
 
@@ -199,7 +199,7 @@ h1 {
   }
 
   .face {
-    padding: 3rem 0 10rem 0;
+    padding: clamp(1rem, 5vw, 3rem) 0 5rem 0;
     position: relative;
     height: auto;
     width: 100%;
@@ -207,7 +207,7 @@ h1 {
 
   .face__footer {
     display: flex;
-    bottom: 7rem;
+    bottom: 2rem;
     width: 50%;
   }
 
