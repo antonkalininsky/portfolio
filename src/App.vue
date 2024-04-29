@@ -178,6 +178,7 @@ h1 {
   padding: 5rem 0;
   position: sticky;
   height: calc(100vh - 5rem);
+  min-height: 500px;
   top: 0;
 }
 
