@@ -18,7 +18,7 @@ a {
 
 .section:last-child {
   padding-bottom: 0;
-  margin-bottom: calc(100vh - 305px);
+  margin-bottom: calc(100vh - 210px);
 }
 
 .section__marker {
