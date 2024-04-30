@@ -4,6 +4,7 @@ import { experience } from '@/data/experience'
 import { ref } from 'vue'
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiArrowTopRight } from '@mdi/js'
+import cvLink from '@/assets/polosin_frontend_cv.pdf'
 
 const aboutSection = ref()
 const experienceSection = ref()
@@ -25,7 +26,7 @@ defineExpose({
       <div class="section__marker" ref="aboutSection"></div>
       <div class="section__header">Обо мне</div>
       <div class="about-me">
-        Привет! Я - фронтенд разработчик с сильными софт скилами. Это моя персональная страница, тут вы можете найти подробную информацию о моей профессиональной деятельности, также можете <a class="download" href="/portfolio/polosin_frontend_cv.pdf" download>скачать моё резюме в формате PDF</a>.
+        Привет! Я - фронтенд разработчик с сильными софт скилами. Это моя персональная страница, тут вы можете найти подробную информацию о моей профессиональной деятельности, также можете <a class="download" :href="cvLink" download>скачать моё резюме в формате PDF</a>.
       </div>
       <div class="about-me">
         Мой опыт фронтенд разработки 2 года, основной фреймворк - Vue. Я ценю качественный код и отлаженные рабочие процессы. Стремлюсь к постоянному профессиональному развитию, не боюсь сложных задач.
